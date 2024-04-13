@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: comparison-service
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: comparison-service
+  template:
+    metadata:
+      labels:
+        app: comparison-service
+    spec:
+      containers:
+      - name: comparison-service
+        image: roflmaoinmysoul/otus:v0.1
+        ports:
+         - containerPort: 8000
